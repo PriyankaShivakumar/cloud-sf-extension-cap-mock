@@ -42,9 +42,8 @@ entity sap.sfextension.refapp.Users as projection on externalplt.Users;
 
 @cds.autoexpose 
 entity sap.sfextension.refapp.Userphoto as projection on externalphoto.Userphoto;
-entity SkillProfile as projection on externalskill.SkillProfile;
-
 }
+
 
 
  
