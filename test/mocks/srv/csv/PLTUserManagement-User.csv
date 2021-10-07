@@ -1,2 +1,2 @@
-employeeid;employeename;email;firstName;title;lastName;businessPhone;country;gender;jobLevel;state;location;division;city;jobTitle;addressLine1;department;
+userId;defaultFullName;email;firstName;title;lastName;businessPhone;country;gender;jobLevel;state;location;division;city;jobTitle;addressLine1;department;
 106020;Mark Burke;Mark.Burke@bestrunsap.com;Mark;HR Business Partner;Burke;(61) 02 5550 9455;Australia;M;HR Professionals;New South Wales;Sydney (8510-0001);Corporate Services (CORP_SVCS);BATLOW;HR Business Partner;48 Bette McNee Street;HR Business Office AU (50110003);
