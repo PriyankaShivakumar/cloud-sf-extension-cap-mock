@@ -217,14 +217,14 @@ resources:
       service-plan: default
     type: org.cloudfoundry.managed-service
 
-  #####################################################################################################################
-  # SuccessFactors Extensibility Service
-  #####################################################################################################################
-  - name: sfextension-service
-    type: org.cloudfoundry.managed-service
-    #type: org.cloudfoundry.existing-service
-    parameters:
-      service: sap-successfactors-extensibility
-      service-plan: api-access
-      config:
-        systemName: SFPART058297 # <-- Provide your system name "SFPART046183" is dummy name
+  # #####################################################################################################################
+  # # SuccessFactors Extensibility Service
+  # #####################################################################################################################
+  # - name: sfextension-service
+  #   type: org.cloudfoundry.managed-service
+  #   #type: org.cloudfoundry.existing-service
+  #   parameters:
+  #     service: sap-successfactors-extensibility
+  #     service-plan: api-access
+  #     config:
+  #       systemName: SFPART058297 # <-- Provide your system name "SFPART046183" is dummy name
