@@ -23,10 +23,7 @@
     "cds": {
         "requires": {
             "messaging": {
-                "kind": "local-messaging",
-                "[production]": {
-                    "kind": "enterprise-messaging-shared"
-                }
+                "kind": "enterprise-messaging-shared"
             },
             "db": {
                 "kind": "sqlite",

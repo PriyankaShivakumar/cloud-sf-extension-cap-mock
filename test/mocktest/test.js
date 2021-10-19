@@ -146,20 +146,20 @@ describe("Read Skills", () => {
 });
 
 
-describe("Post Notification", () => {
-    it(" Post Notification", (done) => {
+describe("Create Notification", () => {
+    it(" Create Notification", (done) => {
         let notification = {
-            "message": "Resigned",
-            "employeeId": "106020",
-            "managerId": config.xsuaa.username
-        }
-        var req_headers = {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + em_access_token,
-            'x-qos': '1'
-        }
-        chai.request(config.em_queue_url)
-            .post('/messages').send(notification).set(req_headers)
+                "message": "Resigned",
+                "employeeId": "106020",
+                "managerId": config.xsuaa.username
+            }
+            // var req_headers = {
+            //     'Content-Type': 'application/json',
+            //     'Authorization': 'Bearer ' + em_access_token,
+            //     'x-qos': '1'
+            // }
+        chai.request(config.mock_service_domain)
+            .post('/sfservice-mocks/Notifications').send(notification)
             .end((error, response) => {
                 try {
                     //response.should.have.status(204);
@@ -175,7 +175,7 @@ describe("Post Notification", () => {
 describe('Read Notifications', () => {
     describe('Should get all  Notifications', () => {
         it('+ should return a list of Notifications', (done) => {
-            let url = '/admin/Notifications';
+            let url = '/sfservice-mocks/Notifications';
             chai.request(config.service_domain)
                 .get(url).set('Authorization', 'bearer ' + xsuaa_access_token)
                 .end((error, response) => {

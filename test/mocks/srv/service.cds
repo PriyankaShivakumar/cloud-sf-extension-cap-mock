@@ -1,7 +1,7 @@
 using FoundationPlatformPLT as externalphoto  from './external/FoundationPlatformPLT';
 using PLTUserManagement as externalplt  from './external/PLTUserManagement';
 using ECSkillsManagement as externalskill  from './external/ECSkillsManagement';
-
+using { sap.sfextension.refapp } from '../../../db/schema';
 
 service SFServiceMocks {
   
@@ -37,5 +37,16 @@ service SFServiceMocks {
     ratedSkills as skills
   }
 
+  @cds.autoexpose
+  entity sap.sfextension.refapp.Users as projection on SFServiceMocks.Users;
+
+  @cds.autoexpose 
+entity sap.sfextension.refapp.Userphoto as projection on SFServiceMocks.Userphoto; 
+
+entity Notifications as projection on  refapp.Notifications;
+  
 }
+
+
+
  
