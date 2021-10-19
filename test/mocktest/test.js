@@ -149,20 +149,16 @@ describe("Read Skills", () => {
 describe("Create Notification", () => {
     it(" Create Notification", (done) => {
         let notification = {
-                "message": "Resigned",
-                "employeeId": "106020",
-                "managerId": config.xsuaa.username
-            }
-            // var req_headers = {
-            //     'Content-Type': 'application/json',
-            //     'Authorization': 'Bearer ' + em_access_token,
-            //     'x-qos': '1'
-            // }
+            "message": "Resigned",
+            "employeeId": "106020",
+            "managerId": config.xsuaa.username,
+            "skills": skill.skills_SkillProfile_externalCode
+        }
         chai.request(config.mock_service_domain)
             .post('/sfservice-mocks/Notifications').send(notification)
             .end((error, response) => {
                 try {
-                    //response.should.have.status(204);
+                    response.should.have.status(201);
                     console.log(response.body);
                     done();
                 } catch (err) {
@@ -175,13 +171,14 @@ describe("Create Notification", () => {
 describe('Read Notifications', () => {
     describe('Should get all  Notifications', () => {
         it('+ should return a list of Notifications', (done) => {
-            let url = '/sfservice-mocks/Notifications';
+            let url = '/sfservice-mocks/Notifications?$filter=employeeId eq \'106020\'';
+            console.log(url);
             chai.request(config.service_domain)
                 .get(url).set('Authorization', 'bearer ' + xsuaa_access_token)
                 .end((error, response) => {
                     try {
                         console.log(response.body);
-                        //response.should.have.status(200);
+                        response.should.have.status(200);
                         done();
                     } catch (err) {
                         done(err);
