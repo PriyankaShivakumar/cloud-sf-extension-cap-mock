@@ -4,7 +4,7 @@ const { em_queue_url } = require('./config');
 //const server = require('./server');
 const config = require('./config');
 let xsuaa_access_token;
-let em_access_token;
+//let em_access_token;
 let user;
 let userpic;
 let skill;
@@ -35,7 +35,7 @@ describe("get access token for xsuaa", () => {
         });
     });
 });
-
+/*
 describe("get em access token", () => {
     describe("Should Get access token for em", () => {
         it(" should fetch access token", (done) => {
@@ -55,7 +55,7 @@ describe("get em access token", () => {
         });
     });
 });
-
+*/
 describe('Read Projects', () => {
     describe('Should get all  Projects', () => {
         it('+ should return a list of projects', (done) => {
