@@ -1,5 +1,6 @@
 const chai = require('chai');
 const chaiHttp = require('chai-http');
+const { em_queue_url } = require('./config');
 //const server = require('./server');
 const config = require('./config');
 let xsuaa_access_token;
@@ -145,7 +146,6 @@ describe("Read Skills", () => {
 
 });
 
-
 describe("Create Notification", () => {
     it(" Create Notification", (done) => {
         let notification = {
@@ -154,6 +154,7 @@ describe("Create Notification", () => {
             "managerId": config.xsuaa.username,
             "skills": skill.skills_SkillProfile_externalCode
         }
+
         chai.request(config.mock_service_domain)
             .post('/sfservice-mocks/Notifications').send(notification)
             .end((error, response) => {
@@ -163,6 +164,7 @@ describe("Create Notification", () => {
                     done();
                 } catch (err) {
                     done(err);
+
                 }
             });
     })
@@ -172,9 +174,8 @@ describe('Read Notifications', () => {
     describe('Should get all  Notifications', () => {
         it('+ should return a list of Notifications', (done) => {
             let url = '/sfservice-mocks/Notifications?$filter=employeeId eq \'106020\'';
-            console.log(url);
-            chai.request(config.service_domain)
-                .get(url).set('Authorization', 'bearer ' + xsuaa_access_token)
+            chai.request(config.mock_service_domain)
+                .get(url)
                 .end((error, response) => {
                     try {
                         console.log(response.body);
@@ -187,3 +188,51 @@ describe('Read Notifications', () => {
         });
     });
 });
+
+
+// describe("Create Notification", () => {
+//     it(" Create Notification", (done) => {
+//         let notification = {
+//             "message": "Resigned",
+//             "employeeId": "106020",
+//             "managerId": config.xsuaa.username,
+//             "skills": skill.skills_SkillProfile_externalCode
+//         }
+//         var req_headers = {
+//             'Content-Type': 'application/json',
+//             'Authorization': 'Bearer ' + em_access_token,
+//             'x-qos': '1'
+//         }
+//         chai.request(config.em_queue_url)
+//             .post('/messages').set(req_headers).send(notification)
+//             .end((error, response) => {
+//                 try {
+//                     response.should.have.status(204);
+//                     done();
+//                 } catch (err) {
+//                     done(err);
+
+//                 }
+//             });
+//     })
+// });
+
+// describe('Read Notifications', () => {
+//     describe('Should get all  Notifications', () => {
+//         it('+ should return a list of Notifications', (done) => {
+//             let url = '/admin/Notifications?$filter=employeeId eq \'106020\'';
+//             chai.request(config.service_domain)
+//                 .get(url).set('Authorization', 'bearer ' + xsuaa_access_token)
+//                 .end((error, response) => {
+//                     try {
+//                         console.log(response);
+//                         //response.should.have.status(200);
+//                         done();
+//                     } catch (err) {
+//                         console.log(err);
+//                         done(err);
+//                     }
+//                 });
+//         });
+//     });
+// });

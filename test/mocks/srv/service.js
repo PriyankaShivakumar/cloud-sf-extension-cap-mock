@@ -9,6 +9,7 @@ module.exports = async srv => {
         const message = msg.message,
             employeeId = msg.employeeId,
             managerId = msg.managerId,
+            skills = msg.skills,
             readStatus = msg.readStatus;
         await messaging.emit("referenceappscf/emsf/1909/sfemessage", msg);
         console.log('<< event emitted', msg);
@@ -17,6 +18,7 @@ module.exports = async srv => {
                 message,
                 employeeId,
                 managerId,
+                skills,
                 readStatus
             })
         )
