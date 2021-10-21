@@ -150,7 +150,7 @@ describe("Create Notification", () => {
     it(" Create Notification", (done) => {
         let notification = {
             "message": "Resigned",
-            "employeeId": "106020",
+            "employeeId": user.userId,
             "managerId": config.xsuaa.username,
             "skills": skill.skills_SkillProfile_externalCode
         }
